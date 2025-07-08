@@ -1,0 +1,1 @@
+{"name":"Local: eighteen","url":"/Users/tajbirhasanshuvo/academicfiles/tle_cp_31_sheet/800/eighteen.cpp","tests":[{"id":1751799557618,"input":"3\n10 2\n10 3\n3 4\n","output":"2\n7 3\n1\n10\n1\n3\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/tajbirhasanshuvo/academicfiles/tle_cp_31_sheet/800/eighteen.cpp","group":"local","local":true}
