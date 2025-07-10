@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 #include <numeric>
+#include <cmath>
 using namespace std;
 
 
@@ -25,20 +26,15 @@ int main() {
   cin>>t;
   while(t--){
     
-    int n;
+    string n;
     cin>>n;
+    long long numLL = stoll(n);
 
-    vctrll(n,arr)
-    vinp(n,arr)
-
-    int cnt=0;
-   for (size_t i = 0; i < n-1; i++)
-   {
-    if(arr[i]%2==arr[i+1]%2)
-        cnt++;
-    
-   }
-   cout<<cnt<<endl;
+    int cnt = 9 * (n.length() - 1);
+    long long div = pow(10, (n.length() - 1));
+    long long mul = numLL / div;
+    cnt += mul;
+    cout << cnt << endl;
     
   }
 

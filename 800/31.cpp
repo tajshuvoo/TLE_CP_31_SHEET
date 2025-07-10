@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 #include <numeric>
+#include <cmath>
 using namespace std;
 
 
@@ -24,21 +25,12 @@ int main() {
   int t;
   cin>>t;
   while(t--){
-    
-    int n;
-    cin>>n;
+    int n,a,b;
+    cin>>n>>a>>b;
 
-    vctrll(n,arr)
-    vinp(n,arr)
-
-    int cnt=0;
-   for (size_t i = 0; i < n-1; i++)
-   {
-    if(arr[i]%2==arr[i+1]%2)
-        cnt++;
-    
-   }
-   cout<<cnt<<endl;
+    if( (a+b+2<=n) || (a==b && b==n) )
+        cout<<"Yes"<<endl;
+    else cout<<"No"<<endl;
     
   }
 
