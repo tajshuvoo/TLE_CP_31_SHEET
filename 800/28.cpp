@@ -35,26 +35,36 @@ int main() {
     int n;
     cin>>n;
 
-    vector<long> arr(n);
+    vctr(n,arr)
     vinp(n,arr)
 
-    int flag=0;
-    for (size_t i = 0; i < n; i++)
+   
+    sort(arr.begin(), arr.end(), greater<int>());
+
+    int countSame=0;
+    countSame= count(arr.begin(),arr.end(),arr[0]);
+
+    if (arr[0]==arr[1])
     {
-      for (size_t j = i+1 ; j < n; j++)
-      {
-        if(gcd(arr[i],arr[j])<=2)
-          flag=1;
-      }
-      
+        int temp;
+        temp=arr[0];
+        arr[0]=arr[n-1];
+        arr[n-1]=temp;
     }
 
-    if (flag==0)
-      cout<<"No"<<endl;
-    else cout<<"Yes"<<endl;
+    if (countSame==n)
+        cout<<"NO"<<endl;
+    else{
+        cout<<"YES"<<endl;
+        for(int x: arr)
+            cout<<x<<" ";
+        cout<<endl;
+    }
     
     
     
+
+
   }
 
   rtn
