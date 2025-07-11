@@ -25,13 +25,44 @@ int main() {
   int t;
   cin>>t;
   while(t--){
-    int n,a,b;
-    cin>>n>>a>>b;
+    long a,b,xk,yk,xq,yq;
+    cin>>a>>b;
+    cin>>xk>>yk;
+    cin>>xq>>yq;
 
-    if( (a+b+2<=n) || (a==b && b==n) )
-        cout<<"Yes"<<endl;
-    else cout<<"No"<<endl;
+    vector<pair<long, long> > king, queen;
     
+    
+    vector<pair<long, long> > moves;
+    moves.push_back(make_pair(a, b));
+    moves.push_back(make_pair(a, -b));
+    moves.push_back(make_pair(-a, b));
+    moves.push_back(make_pair(-a, -b));
+    moves.push_back(make_pair(b, a));
+    moves.push_back(make_pair(b, -a));
+    moves.push_back(make_pair(-b, a));
+    moves.push_back(make_pair(-b, -a));
+    
+    
+    for(int i = 0; i < moves.size(); i++) {
+        king.push_back(make_pair(xk + moves[i].first, yk + moves[i].second));
+    }
+    
+    
+    for(int i = 0; i < moves.size(); i++) {
+        queen.push_back(make_pair(xq + moves[i].first, yq + moves[i].second));
+    }
+
+    set<pair<long, long> > kingSet(king.begin(), king.end());
+    set<pair<long, long> > queenSet(queen.begin(), queen.end());
+    vector<pair<long, long> > intersection;
+
+    set_intersection(kingSet.begin(), kingSet.end(), queenSet.begin(), queenSet.end(), back_inserter(intersection));
+
+    int commonCount = intersection.size();    
+
+    cout<<commonCount<<endl;
+
   }
 
   rtn
