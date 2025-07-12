@@ -26,20 +26,21 @@ int main() {
   cin>>t;
   while(t--){
 
-    long long a,b,n;
-    cin>>a>>b>>n;
-
-    vctrll(n,arr)
-    vinp(n,arr)
-
-    long long sum=0;
-    for (size_t i = 0; i <n; i++)
+    long long n;
+    cin>>n;
+    long long x;
+    for (long long i = 1; i <= n; i++)
     {
-      sum +=min(arr[i],a-1);
-      
+        if(n%i!=0){
+            break;
+        }else{
+            x=i;
+        }
     }
+    cout<<x<<endl;
+
    
-    cout<<sum+b<<endl;
+
   }
 
   rtn
