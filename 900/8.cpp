@@ -26,42 +26,22 @@ int main() {
   cin>>t;
   while(t--){
 
-    long long n,k;
-    cin>>n>>k;
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
 
-    vctrll(n,arr)
-    vinp(n,arr)
-    
-    sort(arr.begin(),arr.end());
-
-    vctr_init(n-1,cntNum,0)
-
-    for (size_t i = 0; i <n-1; i++)
+    int ans =1, curr=1;
+    for (size_t i = 1; i < n; i++)
     {
-      cntNum[i]=abs(arr[i]-arr[i+1]);
+        if(s[i] != s[i-1]) curr=1;
+        else curr++;
+
+        ans=max(ans,curr);
     }
 
-    int maximum=0,curr=0;
-    for (size_t i = 0; i <n-1; i++)
-    {
-      
-      if(cntNum[i]<=k){
-        curr++;
-      }else{
-        curr=0;
-      }
-      maximum=max(curr,maximum);
-      
-    }
-
-    cout<<n-(maximum+1)<<endl;
+    cout<<ans+1<<endl;
     
-
-   
-    
-    
-
-   
 
   }
 

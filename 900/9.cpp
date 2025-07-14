@@ -7,6 +7,15 @@
 #include <cmath>
 using namespace std;
 
+int gcd(int a, int b) {
+    while(b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
 
 #define rtn return 0;
 #define vctr(n, name) vector<int> name(n);
@@ -26,42 +35,19 @@ int main() {
   cin>>t;
   while(t--){
 
-    long long n,k;
-    cin>>n>>k;
-
-    vctrll(n,arr)
+    int n;
+    cin>>n;
+    
+    vctr(n,arr)
     vinp(n,arr)
     
-    sort(arr.begin(),arr.end());
-
-    vctr_init(n-1,cntNum,0)
-
-    for (size_t i = 0; i <n-1; i++)
+    int ans=0;
+    for (int i = 0; i < n; i++)
     {
-      cntNum[i]=abs(arr[i]-arr[i+1]);
+        int diff = arr[i] - (i + 1);
+        ans = gcd(ans, diff >= 0 ? diff : -diff);
     }
-
-    int maximum=0,curr=0;
-    for (size_t i = 0; i <n-1; i++)
-    {
-      
-      if(cntNum[i]<=k){
-        curr++;
-      }else{
-        curr=0;
-      }
-      maximum=max(curr,maximum);
-      
-    }
-
-    cout<<n-(maximum+1)<<endl;
-    
-
-   
-    
-    
-
-   
+    cout<<ans<<endl;
 
   }
 
