@@ -35,19 +35,32 @@ int main() {
   cin>>t;
   while(t--){
 
-    int n;
+    long long n;
     cin>>n;
-    
-    vctrll(n+1,arr)  
-    
 
-    int ans=0;
-    for (int i = 1; i <=n; i++)
-    {
-        cin>>arr[i];
-        if(arr[i]>0 && arr[i-1]==0) ans++;
+    vctrll(n,a)
+    vinp(n,a)
+
+    int ans = 0;
+    bool impossible = false;
+    
+    for (int i = n-2; i >= 0 && !impossible; i--) {
+        while(a[i] >= a[i+1] && a[i] > 0) {
+            a[i] /= 2;
+            ans++;
+        }
+
+        if(a[i] >= a[i+1]) {  
+            impossible = true;
+        }
     }
-    cout<<min(ans,2)<<endl;
+    
+    if(impossible) {
+        cout << -1 << endl;
+    } else {
+        cout << ans << endl;
+    }
+    
 
   }
 

@@ -35,19 +35,15 @@ int main() {
   cin>>t;
   while(t--){
 
-    int n;
+    long long n;
     cin>>n;
-    
-    vctrll(n+1,arr)  
-    
 
-    int ans=0;
-    for (int i = 1; i <=n; i++)
-    {
-        cin>>arr[i];
-        if(arr[i]>0 && arr[i-1]==0) ans++;
+    if(n%2==1 || n<4)
+      cout<<-1<<endl;
+    else{
+      cout<<(n+4)/6<<" "<<n/4<<endl;
     }
-    cout<<min(ans,2)<<endl;
+    
 
   }
 
