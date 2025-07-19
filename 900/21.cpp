@@ -5,6 +5,7 @@
 #include <string>
 #include <numeric>
 #include <cmath>
+#include <map>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -35,38 +36,32 @@ int main() {
   cin>>t;
   while(t--){
 
-    string s,t;
-    cin>>s>>t;
+    string s;
+    cin>>s;
 
-    int n= s.size();
-    int m = t.size();
-
-    vector<int > freq_t(26,0);
-    for (int i = 0; i < m; i++)
-    {
-        freq_t[t[i]-'A']++;
+    vector<int> digits_int;
+    for(char c : s) {
+        if(isdigit(c)) {
+            digits_int.push_back(c - '0');
+        }
     }
-
+    
+    int minimum = INT_MAX;  
+    int n = s.length();
+    
     for (int i = n-1; i >= 0; i--)
     {
-        if(freq_t[s[i]-'A']>0)
-            freq_t[s[i]-'A']--;
-        else s[i]='.';
+        for (int j = i-1; j >= 0; j--) {  
+            if((digits_int[j]*10 + digits_int[i]) % 25 == 0) {
+                minimum = min(minimum, (n-i-1) + (i-j-1));  
+                break;  
+            }
+        }
     }
-    string ans="";
 
-    for (int i = 0; i < n; i++)
-    {
-        if(s[i]!='.')
-            ans+=s[i];
-    }
-    
-    if(ans==t)
-        cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+    cout << (minimum == INT_MAX ? -1 : minimum) << endl;
 
     
-
   }
 
   rtn

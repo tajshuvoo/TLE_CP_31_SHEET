@@ -5,11 +5,18 @@
 #include <string>
 #include <numeric>
 #include <cmath>
+#include <map>
 using namespace std;
 
-int gcd(int a, int b) {
+long long gcd(long long a, long long b) {
+
+    if(b>a){
+        long temp =a;
+        a=b;
+        b=temp;
+    }
     while(b != 0) {
-        int temp = b;
+        long long temp = b;
         b = a % b;
         a = temp;
     }
@@ -31,43 +38,22 @@ int gcd(int a, int b) {
 
 int main() {
   FAST_IO
-  int t;
-  cin>>t;
-  while(t--){
+    int t;
+    cin>>t;
+    while(t--){
 
-    string s,t;
-    cin>>s>>t;
+        long long a,b;
+        cin>>a>>b;
 
-    int n= s.size();
-    int m = t.size();
+        
+        long long g= abs(a-b);
+        long long m = min(b%g ,g - b%g);
 
-    vector<int > freq_t(26,0);
-    for (int i = 0; i < m; i++)
-    {
-        freq_t[t[i]-'A']++;
-    }
-
-    for (int i = n-1; i >= 0; i--)
-    {
-        if(freq_t[s[i]-'A']>0)
-            freq_t[s[i]-'A']--;
-        else s[i]='.';
-    }
-    string ans="";
-
-    for (int i = 0; i < n; i++)
-    {
-        if(s[i]!='.')
-            ans+=s[i];
-    }
-    
-    if(ans==t)
-        cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+        if(a==b)cout<<0<<" "<<0<<endl;
+        else cout<<g<<" "<<m<<endl;
 
     
-
-  }
+    }
 
   rtn
 }

@@ -5,6 +5,7 @@
 #include <string>
 #include <numeric>
 #include <cmath>
+#include <map>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -35,38 +36,31 @@ int main() {
   cin>>t;
   while(t--){
 
-    string s,t;
-    cin>>s>>t;
+    long long a,b,c;
+    cin>>a>>b>>c;
 
-    int n= s.size();
-    int m = t.size();
-
-    vector<int > freq_t(26,0);
-    for (int i = 0; i < m; i++)
-    {
-        freq_t[t[i]-'A']++;
-    }
-
-    for (int i = n-1; i >= 0; i--)
-    {
-        if(freq_t[s[i]-'A']>0)
-            freq_t[s[i]-'A']--;
-        else s[i]='.';
-    }
-    string ans="";
-
-    for (int i = 0; i < n; i++)
-    {
-        if(s[i]!='.')
-            ans+=s[i];
-    }
+    bool found = false;
     
-    if(ans==t)
-        cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+    long long new_a = b - (c - b);
+    if(!found && new_a >= a && new_a % a == 0 && new_a != 0) {
+        found = true;
+    }
 
-    
+    long long new_b = a + (c - a)/2;
+    if(!found && new_b >= b && (c-a)%2 == 0 && new_b % b == 0 && new_b != 0) {
+        found = true;
+    }
 
+    long long new_c = a + 2*(b - a);
+    if(!found && new_c >= c && new_c % c == 0 && new_c != 0) {
+        found = true;
+    }
+
+    if(found) {
+        cout << "YES\n";
+    } else {
+        cout << "NO\n";
+    }
   }
 
   rtn

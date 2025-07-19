@@ -5,6 +5,7 @@
 #include <string>
 #include <numeric>
 #include <cmath>
+#include <map>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -35,38 +36,36 @@ int main() {
   cin>>t;
   while(t--){
 
-    string s,t;
-    cin>>s>>t;
+    long long n;
+    cin>>n;
 
-    int n= s.size();
-    int m = t.size();
+    vctrll(n,a)
+    vinp(n,a)
 
-    vector<int > freq_t(26,0);
-    for (int i = 0; i < m; i++)
-    {
-        freq_t[t[i]-'A']++;
-    }
-
-    for (int i = n-1; i >= 0; i--)
-    {
-        if(freq_t[s[i]-'A']>0)
-            freq_t[s[i]-'A']--;
-        else s[i]='.';
-    }
-    string ans="";
-
+    map<long long, long long> freq;
     for (int i = 0; i < n; i++)
     {
-        if(s[i]!='.')
-            ans+=s[i];
+        freq[a[i]]++;
     }
-    
-    if(ans==t)
-        cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+    long long curr = 0;
+    for(auto it: freq){
+        curr = max(it.second, curr);
+    }
+    long long ops = 0;
 
-    
+    while(curr < n){
+        ops++;
 
+        if(curr * 2 <= n){
+            ops += curr;
+            curr *= 2;
+        } else {
+            ops += n - curr;
+            curr = n;
+        }
+    }
+
+    cout << ops << endl;
   }
 
   rtn
