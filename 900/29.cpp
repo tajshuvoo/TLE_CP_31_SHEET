@@ -11,7 +11,7 @@ using namespace std;
 long long gcd(long long a, long long b) {
 
     if(b>a){
-        long temp =a;
+        long long temp = a;  
         a=b;
         b=temp;
     }
@@ -42,13 +42,46 @@ int main() {
     cin>>t;
     while(t--){
 
-        long long n,m,i,j;
-        cin>>n>>m>>i>>j;
+        int n;
+        cin>>n;
 
-        cout<<1<<" "<<1<<" "<<n<<" "<<m<<endl;
         
+        vctrll(n,a)
+        vinp(n,a)
 
-    
+        
+        bool found = false;
+        
+        for (int j = 1; j < n-1 && !found; j++)  
+        {
+            int i = -1;
+            for (int x = 0; x < j; x++) {
+                if (a[x] < a[j]) {
+                    i = x;
+                    break;
+                }
+            }
+            
+            int k = -1;
+            for (int x = j+1; x < n; x++) {
+                if (a[j] > a[x]) {
+                    k = x;
+                    break;
+                }
+            }
+            
+            if (i != -1 && k != -1) {
+                cout << "YES" << endl;
+                cout << i+1 << " " << j+1 << " " << k+1 << endl;  
+                found = true;
+            }
+        }
+        
+        if (!found) {
+            cout << "NO" << endl;
+        } 
+       
+        
     }
 
   rtn

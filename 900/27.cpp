@@ -42,13 +42,20 @@ int main() {
     cin>>t;
     while(t--){
 
-        long long n,m,i,j;
-        cin>>n>>m>>i>>j;
+        long long n,x;
+        cin>>n>>x;
 
-        cout<<1<<" "<<1<<" "<<n<<" "<<m<<endl;
         
+        vctrll(n,a)
+        vinp(n,a)
 
-    
+        long long maximum =0 , sum=0;
+        for(long long y: a){
+            maximum= maximum+ (long long )ceil((double)y/x);
+            sum+=y;
+        }
+
+        cout<<(long long )ceil((double)sum/x)<<" "<<maximum<<endl;
     }
 
   rtn

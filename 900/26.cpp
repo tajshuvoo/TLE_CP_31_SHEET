@@ -42,11 +42,12 @@ int main() {
     cin>>t;
     while(t--){
 
-        long long n,m,i,j;
-        cin>>n>>m>>i>>j;
+        long long n;
+        cin>>n;
 
-        cout<<1<<" "<<1<<" "<<n<<" "<<m<<endl;
-        
+        if(n & (n-1))
+            cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
 
     
     }

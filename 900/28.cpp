@@ -42,13 +42,22 @@ int main() {
     cin>>t;
     while(t--){
 
-        long long n,m,i,j;
-        cin>>n>>m>>i>>j;
+        long long n,k;
+        cin>>n>>k;
 
-        cout<<1<<" "<<1<<" "<<n<<" "<<m<<endl;
         
+        vctrll(n*k,a)
+        vinp(n*k,a)
 
-    
+        long long pointer= n*k;
+
+        long long ans=0;
+        while(k--){
+            pointer-= (n/2 +1 );
+            ans+=a[pointer];
+        }
+
+        cout<<ans<<endl;
     }
 
   rtn
